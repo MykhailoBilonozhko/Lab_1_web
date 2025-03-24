@@ -1,63 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const rows = document.querySelectorAll('#menu table tbody tr');
+document.addEventListener("DOMContentLoaded", function () {
+    // --- Завдання 1: Керування DOM ---
+    
+    // Вибираємо всі рядки таблиці з меню
+    let menuItems = document.querySelectorAll("tbody tr");
 
-    // Спочатку задаємо стилі для кожного рядка за data-priority
-    rows.forEach(row => {
-        const priority = row.getAttribute('data-priority');
+    // Перебираємо всі страви
+    menuItems.forEach(row => {
+        let priceCell = row.querySelector("td:last-child");
+        let price = parseInt(priceCell.textContent); // Отримуємо ціну страви
+        
+        // Змінюємо фон рядка залежно від ціни
+        if (price > 100) {
+            row.style.backgroundColor = "#ffdddd"; // Світло-червоний для дорогих страв
+        } else {
+            row.style.backgroundColor = "#ddffdd"; // Світло-зелений для дешевших страв
+        }
 
-        if (priority === 'low') {
-            row.classList.add('low');
-        } else if (priority === 'medium') {
-            row.classList.add('medium');
-        } else if (priority === 'high') {
-            row.classList.add('high');
+        // Змінюємо текст страви, якщо це вареники
+        let nameCell = row.querySelector("td:first-child");
+        if (nameCell.textContent.includes("Вареники")) {
+            nameCell.textContent += "│⭐New⭐│";
         }
     });
 
-    // Кнопка для підсвічування найпопулярніших страв
-    const button = document.getElementById('highlight-button');
+    // --- Завдання 2: Обробка подій та динамічні оновлення ---
 
-    button.addEventListener('click', () => {
-        rows.forEach(row => {
-            const priority = row.getAttribute('data-priority');
+    // 1. Кнопка для перемикання видимості опису
+    let toggleButton = document.getElementById("toggleDescription");
+    let description = document.getElementById("description");
 
-            if (priority === 'high') {
-                row.classList.add('highlighted');
-            }
+    toggleButton.addEventListener("click", function () {
+        if (description.style.display === "none") {
+            description.style.display = "block";
+        } else {
+            description.style.display = "none";
+        }
+    });
+
+    // 3. Ефект наведення на пункти меню
+    menuItems.forEach(row => {
+        row.addEventListener("mouseenter", function () {
+            row.style.backgroundColor = "#f0f0f0"; // Світлий фон при наведенні
+        });
+        row.addEventListener("mouseleave", function () {
+            row.style.backgroundColor = ""; // Повернення до стандартного кольору
         });
     });
-
-    // КРОК 1 + 2: Кнопка для показу/приховування пріоритетного блоку
-    const toggleBtn = document.querySelector('.toggle-btn');
-    const priorityBlock = document.getElementById('priority-block');
-
-    toggleBtn.addEventListener('click', () => {
-    if (priorityBlock.style.display === 'none') {
-        priorityBlock.style.display = 'block';
-        toggleBtn.textContent = 'Приховати пріоритет';
-    } else {
-        priorityBlock.style.display = 'none';
-        toggleBtn.textContent = 'Показати пріоритет';
-    }
-    });
-
-    // КРОК 3: Цикл для кнопок меню
-    const menuButtons = document.querySelectorAll('.menu-btn');
-    const menuContent = document.getElementById('menu-content');
-
-    for (let i = 0; i < menuButtons.length; i++) {
-    menuButtons[i].addEventListener('click', () => {
-        menuContent.textContent = `Ви натиснули на: Пункт ${i + 1}`;
-    });
-    }
-
-    // КРОК 4: Ефект наведення (альтернатива через JS)
-    toggleBtn.addEventListener('mouseenter', () => {
-    toggleBtn.style.backgroundColor = '#444';
-    });
-
-    toggleBtn.addEventListener('mouseleave', () => {
-    toggleBtn.style.backgroundColor = '#333';
-    });
-
 });
