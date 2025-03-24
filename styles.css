@@ -3,7 +3,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -36,7 +35,6 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 15px;
     padding: 0;
     margin-top: 10px;
 }
@@ -101,7 +99,6 @@ tbody tr:hover {
 
 table img {
     width: 100px;
-    height: auto;
     border-radius: 8px;
 }
 
@@ -176,167 +173,3 @@ footer p {
     margin: 5px 0;
 }
 
-/* === Пріоритети страв === */
-.low {
-    background-color: #ffffff; /* світло-зелений для низького пріоритету */
-}
-
-.medium {
-    background-color: #eaeaea; /* світло-оранжевий для середнього пріоритету */
-}
-
-.high {
-    background-color: #d4d4d4; /* світло-червоний для високого пріоритету */
-}
-
-.highlighted {
-    background-color: #7c1313 !important; /* яскраво-червоний */
-    color: #ffffff;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-/* === Кнопка Показати Пріоритет === */
-.priority-button {
-    display: block;
-    margin: 0 auto 30px auto; /* по центру + відступи */
-    padding: 12px 24px;
-    background-color: #333333; /* темно-сірий фон */
-    color: #f0f0f0; /* світло-сірий текст */
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.priority-button:hover {
-    background-color: #555555; /* світліший при наведенні */
-    transform: translateY(-2px);
-}
-
-.priority-button:active {
-    background-color: #111111; /* ще темніший при натисканні */
-    transform: translateY(0);
-}
-
-.toggle-btn {
-    background-color: #333;
-    color: #f0f0f0;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .toggle-btn:hover {
-    background-color: #555;
-    transform: scale(1.05);
-  }
-  
-  .menu-btn {
-    background-color: #777;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .menu-btn:hover {
-    background-color: #555;
-  }
-  
-  #priority-block {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  
-
-/* === Медіа-запити === */
-
-/* Планшети: до 992px */
-@media (max-width: 992px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    main {
-        padding: 30px 15px;
-    }
-
-    section h2 {
-        font-size: 1.8rem;
-    }
-
-    .chef-card {
-        width: 45%;
-    }
-
-    iframe {
-        height: 300px;
-    }
-}
-
-/* Мобільні пристрої: до 600px */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    nav ul li {
-        margin: 8px 0;
-    }
-
-    main {
-        padding: 20px 10px;
-    }
-
-    section h2 {
-        font-size: 1.4rem;
-    }
-
-    table th, table td {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    .chefs {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .chef-card {
-        width: 100%;
-    }
-
-    iframe {
-        height: 250px;
-    }
-
-    footer {
-        font-size: 0.8rem;
-        padding: 15px 5px;
-    }
-}
