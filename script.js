@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // --- Завдання 1: Керування DOM ---
     
-    // Вибираємо всі рядки таблиці з меню
     let menuItems = document.querySelectorAll("tbody tr");
 
-    // Перебираємо всі страви
     menuItems.forEach(row => {
         let priceCell = row.querySelector("td:last-child");
         let price = parseInt(priceCell.textContent); // Отримуємо ціну страви
