@@ -26,4 +26,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // КРОК 1 + 2: Кнопка для показу/приховування пріоритетного блоку
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const priorityBlock = document.getElementById('priority-block');
+
+    toggleBtn.addEventListener('click', () => {
+    if (priorityBlock.style.display === 'none') {
+        priorityBlock.style.display = 'block';
+        toggleBtn.textContent = 'Приховати пріоритет';
+    } else {
+        priorityBlock.style.display = 'none';
+        toggleBtn.textContent = 'Показати пріоритет';
+    }
+    });
+
+    // КРОК 3: Цикл для кнопок меню
+    const menuButtons = document.querySelectorAll('.menu-btn');
+    const menuContent = document.getElementById('menu-content');
+
+    for (let i = 0; i < menuButtons.length; i++) {
+    menuButtons[i].addEventListener('click', () => {
+        menuContent.textContent = `Ви натиснули на: Пункт ${i + 1}`;
+    });
+    }
+
+    // КРОК 4: Ефект наведення (альтернатива через JS)
+    toggleBtn.addEventListener('mouseenter', () => {
+    toggleBtn.style.backgroundColor = '#444';
+    });
+
+    toggleBtn.addEventListener('mouseleave', () => {
+    toggleBtn.style.backgroundColor = '#333';
+    });
+
 });
