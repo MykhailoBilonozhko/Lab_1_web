@@ -10,6 +10,7 @@
 
     <header>
         <h1>Ресторан "Мон Кришталь"</h1>
+        <div id="content"><h4>Оберіть пункт меню</h4></div>
         <nav>
             <ul>
                 <li><a href="index.html">Головна</a></li>
@@ -28,6 +29,19 @@
                 <p>Перейдіть у розділи нашого сайту, щоб дізнатися більше про меню, кухарів та нашу історію!</p>
             </div>
         </section>
+
+        <!-- Форма для коментарів -->
+        <section>
+            <h2>Залишити коментар</h2>
+            <form id="commentForm">
+                <input type="text" id="name" placeholder="Ваше ім'я" required>
+                <textarea id="comment" placeholder="Ваш коментар" required></textarea>
+                <button type="submit">Надіслати</button>
+            </form>
+
+            <h3>Коментарі:</h3>
+            <ul id="commentList"></ul>
+        </section>
     </main>
 
     <footer>
@@ -35,5 +49,6 @@
         <p>м. Львів, вул. Головна, 12 | +380 67 123 45 67 | info@monkryshtal.ua</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

@@ -5,43 +5,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuItems.forEach(row => {
         let priceCell = row.querySelector("td:last-child");
-        let price = parseInt(priceCell.textContent); // Отримуємо ціну страви
-        
-        // Змінюємо фон рядка залежно від ціни
-        if (price > 100) {
-            row.style.backgroundColor = "#ffdddd"; // Світло-червоний для дорогих страв
-        } else {
-            row.style.backgroundColor = "#ddffdd"; // Світло-зелений для дешевших страв
-        }
+        if (!priceCell) return;
 
-        // Змінюємо текст страви, якщо це вареники
+        let price = parseInt(priceCell.textContent); 
+        
+        row.style.backgroundColor = price > 100 ? "#ffdddd" : "#ddffdd";
+
         let nameCell = row.querySelector("td:first-child");
-        if (nameCell.textContent.includes("Вареники")) {
-            nameCell.textContent += "│⭐New⭐│";
+        if (nameCell && nameCell.textContent.includes("Вареники")) {
+            nameCell.textContent += " │⭐New⭐│";
         }
     });
 
-    // --- Завдання 2: Обробка подій та динамічні оновлення ---
+    // --- Завдання 2: Обробка подій ---
 
-    // 1. Кнопка для перемикання видимості опису
+    // Кнопка для перемикання опису
     let toggleButton = document.getElementById("toggleDescription");
     let description = document.getElementById("description");
 
-    toggleButton.addEventListener("click", function () {
-        if (description.style.display === "none") {
-            description.style.display = "block";
-        } else {
-            description.style.display = "none";
-        }
-    });
+    if (toggleButton && description) {
+        toggleButton.addEventListener("click", function () {
+            description.style.display = (description.style.display === "none") ? "block" : "none";
+        });
+    }
 
-    // 3. Ефект наведення на пункти меню
+    // Ефект наведення на пункти меню
     menuItems.forEach(row => {
         row.addEventListener("mouseenter", function () {
-            row.style.backgroundColor = "#f0f0f0"; // Світлий фон при наведенні
+            row.style.backgroundColor = "#f0f0f0";
         });
         row.addEventListener("mouseleave", function () {
-            row.style.backgroundColor = ""; // Повернення до стандартного кольору
+            row.style.backgroundColor = "";
         });
     });
+
+    // --- Завдання 3: Додавання коментарів ---
+    
+    let commentForm = document.getElementById("commentForm");
+    let commentInput = document.getElementById("comment"); // Переконайся, що ID збігається з HTML
+    let commentList = document.getElementById("commentList");
+
+    if (commentForm && commentInput && commentList) {
+        commentForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let commentText = commentInput.value.trim();
+
+            if (commentText === "") {
+                alert("Будь ласка, введіть коментар!");
+                return;
+            }
+
+            let newComment = document.createElement("li");
+            newComment.textContent = commentText;
+            newComment.classList.add("comment-item");
+
+            commentList.appendChild(newComment);
+            commentInput.value = "";
+        });
+    }
 });

@@ -173,3 +173,180 @@ footer p {
     margin: 5px 0;
 }
 
+#toggleDescription {
+    display: block; /* Робимо кнопку блочним елементом */
+    margin: 20px auto; /* Вирівнюємо по центру та додаємо відступ зверху */
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#toggleDescription:hover {
+    background-color: #5a5a5a;
+    transform: scale(1.05);
+}
+
+#toggleDescription:active {
+    background-color: #3d3d3d;
+    transform: scale(0.98);
+}
+
+/* Стилізація секції коментарів */
+#comments-section {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f8f8f8; /* Світло-сірий фон */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок секції коментарів */
+#comments-section h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Форма для коментарів */
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Поля вводу */
+#commentForm input,
+#commentForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+}
+
+/* Кнопка додати коментар */
+#commentForm button {
+    background-color: #666; /* Темно-сірий */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+#commentForm button:hover {
+    background-color: #444; /* Темніший сірий */
+}
+
+/* Список коментарів */
+#commentList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+/* Окремий коментар */
+#commentList li {
+    background-color: #e0e0e0; /* Світло-сірий */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #999; /* Темно-сіра лінія збоку */
+}
+
+/* Ім'я автора */
+#commentList li strong {
+    color: #222;
+    font-weight: bold;
+}
+
+/* === Медіа-запити === */
+
+/* Планшети: до 992px */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .chef-card {
+        width: 45%;
+    }
+
+    iframe {
+        height: 300px;
+    }
+}
+
+/* Мобільні пристрої: до 600px */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    table th, table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .chefs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chef-card {
+        width: 100%;
+    }
+
+    iframe {
+        height: 250px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 15px 5px;
+    }
+}
+
